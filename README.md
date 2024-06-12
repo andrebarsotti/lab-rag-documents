@@ -1,2 +1,2 @@
-# lab-rag-documents
+# Laboratório para o estudo de Retrieval-Augmented Generation
 
