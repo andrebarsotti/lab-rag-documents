@@ -73,6 +73,9 @@ Saída:
     Sources: ['..\\data\\Nunes - 2024 - Processamento de Linguagem Natural Conceitos, Téc.pdf', '..\\data\\Nunes - 2024 - Processamento de Linguagem Natural Conceitos, Téc.pdf', '..\\data\\Nunes - 2024 - Processamento de Linguagem Natural Conceitos, Téc.pdf']
     ```
 
-## Agradecimentos
+## Referências
 
-Este projeto é baseado nas bibliotecas LangChain e OpenAI. Agradecemos especialmente aos contribuidores desses projetos de código aberto.
+**PYTHON RAG TUTORIAL (WITH LOCAL LLMS): AI FOR YOUR PDFS.** Direção: Pixegami. [S. l.: s. n.], 2024. (21:33). Disponível em: https://www.youtube.com/watch?v=2TJxpyO3ei4. Acesso em: 13 jun. 2024.
+
+**RAG + LANGCHAIN PYTHON PROJECT: EASY AI/CHAT FOR YOUR DOCS.** Direção: Pixegami. [S. l.: s. n.], 2023. (16:42). Disponível em: https://www.youtube.com/watch?v=tcqEUSNCn8I. Acesso em: 13 jun. 2024.
+
