@@ -66,7 +66,7 @@ Aqui está um exemplo de como usar o projeto:
     python src/query_database.py "O que é um Large Language Model?"
     ```
 
-Saída:
+    Saída:
 
     ```
     Response: Um Large Language Model (LLM) é um modelo de linguagem neural que se diferencia de outros modelos pré-treinados devido à sua enorme quantidade de parâmetros, seu enquadramento na categoria de métodos de IA gerativa e suas habilidades emergentes que não são observadas em modelos menores. Eles são utilizados principalmente para a geração de conteúdo, como geração de texto.
