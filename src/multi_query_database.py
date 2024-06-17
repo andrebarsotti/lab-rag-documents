@@ -76,7 +76,7 @@ class QueryProcessor:
     def generate_response(self, results, query_text):
         context_text = "\n\n---\n\n".join([doc.page_content for doc in results])
         prompt = self.prompt_template.format(context=context_text, question=query_text)
-        print(prompt)
+        # print(prompt)
 
         response_text = self.model.invoke(prompt)
         sources = [doc.metadata.get("source", None) for doc in results]
