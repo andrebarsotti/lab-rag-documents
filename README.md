@@ -79,3 +79,4 @@ Aqui está um exemplo de como usar o projeto:
 
 **RAG + LANGCHAIN PYTHON PROJECT: EASY AI/CHAT FOR YOUR DOCS.** Direção: Pixegami. [S. l.: s. n.], 2023. (16:42). Disponível em: https://www.youtube.com/watch?v=tcqEUSNCn8I. Acesso em: 13 jun. 2024.
 
+**LEARN RAG FROM SCRATCH – PYTHON AI TUTORIAL FROM A LANGCHAIN ENGINEER.** Direção: freeCodeCamp.org. [S. l.: s. n.], 2024. (153:11). Disponível em: https://www.youtube.com/watch?v=sVcwVQRHIc8. Acesso em: 14 jun. 2024.
