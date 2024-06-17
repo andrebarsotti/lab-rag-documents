@@ -1,6 +1,6 @@
 import argparse
 from langchain_community.vectorstores import Chroma
-from langchain_openai import OpenAIEmbeddings, ChatOpenAI, chat_models
+from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from dotenv import load_dotenv
 import os
@@ -9,18 +9,34 @@ import os
 load_dotenv(dotenv_path="./.env", verbose=True)
 CHROMA_PATH = os.environ.get("CHROMA_PATH", "chroma")
 
+# PROMPT_TEMPLATE = """
+# You are a helpful assistant. Use the following pieces of context to answer the question at the end.
+# If the answer is not in context then just say that you don't know, don't try to make up an answer. 
+# Be concise and specific, and use a formal language. Don't say mention the word context in the response.
+
+# {context}
+
+# ---
+
+# Question: {question}
+# Helpful Answer:"""
+
 PROMPT_TEMPLATE = """
-You are a helpful assistant. Use the following pieces of context to answer the question at the end.
-If the answer is not in context then just say that you don't know, don't try to make up an answer. 
-Be concise and specific, and use a formal language.
-Don't say mention the word context in the response.
+Use the following context as your learned knowledge, inside <context></context> XML tags.
+<context>
+    {context}
+    ---
+</context>
 
-{context}
+When answer to user:
+- If you don't know, just say that you don't know.
+- If you don't know when you are not sure, ask for clarification.
+Avoid mentioning that you obtained the information from the context.
+And answer according to the language of the user's question.
 
----
-
-Question: {question}
-Helpful Answer:"""
+Given the context information, answer the query.
+Query: {question}
+"""
 
 class QueryProcessor:
     def __init__(self):
@@ -31,15 +47,16 @@ class QueryProcessor:
         
     def search_db(self, query_text):
         results = self.db.similarity_search_with_relevance_scores(query_text, k=7)
-        if len(results) == 0 or results[0][1] < 0.75:
-            print("Unable to find matching results.")
-            return None
+        #print(results)
+        # if len(results) == 0 or results[0][1] < 0.7:
+        #     print("Unable to find matching results.")
+        #     return None
         return results
 
     def generate_response(self, results, query_text):
         context_text = "\n\n---\n\n".join([doc.page_content for doc, _score in results])
         prompt = self.prompt_template.format(context=context_text, question=query_text)
-        #print(prompt)
+        print(prompt)
 
         response_text = self.model.invoke(prompt)
         sources = [doc.metadata.get("source", None) for doc, _score in results]

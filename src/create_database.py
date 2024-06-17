@@ -11,6 +11,7 @@ import shutil
 
 # Load environment variables
 load_dotenv(dotenv_path="./.env", verbose=True)
+# load_dotenv(verbose=True)
 
 CHROMA_PATH = os.environ.get("CHROMA_PATH", "chroma")
 DATA_PATH = os.environ.get("DATA_PATH", "../data")
@@ -19,7 +20,8 @@ openai.api_key = os.environ['OPENAI_API_KEY']
 # %%
 def load_documents(): 
     print("Loading documents...")
-    return PyPDFDirectoryLoader(DATA_PATH, recursive=True, extract_images=True).load()
+    # return PyPDFDirectoryLoader(DATA_PATH, recursive=True, extract_images=True).load()
+    return PyPDFDirectoryLoader(DATA_PATH, recursive=True).load()
 
 # %%
 def split_documents(documents: list[Document]):
@@ -55,4 +57,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-# %%
