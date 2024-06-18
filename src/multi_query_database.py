@@ -6,37 +6,17 @@ from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain.load import dumps, loads
+from helpers import load_prompt
 
 # Load environment variables
 load_dotenv(dotenv_path="./.env", verbose=True)
 CHROMA_PATH = os.getenv("CHROMA_PATH", "chroma")
 
 # Prompt template
-PROMPT_TEMPLATE = """
-Use the following context as your learned knowledge, inside <context></context> XML tags.
-<context>
-    {context}
-    ---
-</context>
-
-When answering the user:
-- If you don't know, just say that you don't know.
-- If you don't know when you are not sure, ask for clarification.
-Avoid mentioning that you obtained the information from the context.
-And answer according to the language of the user's question.
-
-Given the context information, answer the query.
-Query: {question}
-"""
+PROMPT_TEMPLATE = load_prompt("rag-completo.prompt")
 
 # Multi Query prompt template
-PERSPECTIVES_TEMPLATE = """
-You are an AI language model assistant. Your task is to generate five
-different versions of the given user question to retrieve relevant documents from a vector
-database. By generating multiple perspectives on the user question, your goal is to help
-the user overcome some of the limitations of the distance-based similarity search.
-Provide these alternative questions separated by newlines. Original question: {question}
-"""
+PERSPECTIVES_TEMPLATE = load_prompt("perspectives.prompt")
 
 class QueryProcessor:
     def __init__(self):
