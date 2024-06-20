@@ -12,6 +12,7 @@ from helpers import load_prompt
 # Load environment variables
 load_dotenv(dotenv_path="./.env", verbose=True)
 CHROMA_PATH = os.getenv("CHROMA_PATH", "chroma")
+OLLAMA_MODEL=os.getenv("OLLAMA_MODEL", "llama3")
 
 # Prompt template
 PROMPT_TEMPLATE = load_prompt("rag-completo.prompt")
@@ -26,7 +27,7 @@ class QueryProcessor:
         self.retriever = self.db.as_retriever()
         self.prompt_template = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
         self.perspectives_template = ChatPromptTemplate.from_template(PERSPECTIVES_TEMPLATE)
-        self.model = ChatOllama(model="llama3", temperature=0.5)
+        self.model = ChatOllama(model=OLLAMA_MODEL, temperature=0.5)
         
 
     def generate_queries(self, question):
