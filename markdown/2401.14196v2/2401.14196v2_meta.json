@@ -1,0 +1,353 @@
+{
+    "languages": [
+        "en"
+    ],
+    "filetype": "pdf",
+    "toc": [
+        {
+            "title": "Introduction",
+            "level": 0,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 0,
+            "view_mode": "XYZ",
+            "view_pos": [
+                70.86599731445312,
+                109.79598999023438,
+                0.0
+            ]
+        },
+        {
+            "title": "Data Collection",
+            "level": 0,
+            "is_closed": true,
+            "n_kids": 4,
+            "page_index": 2,
+            "view_mode": "XYZ",
+            "view_pos": [
+                70.86599731445312,
+                717.3109741210938,
+                0.0
+            ]
+        },
+        {
+            "title": "GitHub Data Crawling and Filtering",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 2,
+            "view_mode": "XYZ",
+            "view_pos": [
+                70.86599731445312,
+                442.8179931640625,
+                0.0
+            ]
+        },
+        {
+            "title": "Dependency Parsing",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 2,
+            "view_mode": "XYZ",
+            "view_pos": [
+                70.86599731445312,
+                204.47300720214844,
+                0.0
+            ]
+        },
+        {
+            "title": "Repo-Level Deduplication",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 4,
+            "view_mode": "XYZ",
+            "view_pos": [
+                70.86599731445312,
+                620.8720092773438,
+                0.0
+            ]
+        },
+        {
+            "title": "Quality Screening and Decontamination",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 4,
+            "view_mode": "XYZ",
+            "view_pos": [
+                70.86599731445312,
+                402.8509826660156,
+                0.0
+            ]
+        },
+        {
+            "title": "Training Policy",
+            "level": 0,
+            "is_closed": true,
+            "n_kids": 7,
+            "page_index": 4,
+            "view_mode": "XYZ",
+            "view_pos": [
+                70.86599731445312,
+                171.281005859375,
+                0.0
+            ]
+        },
+        {
+            "title": "Training Strategy",
+            "level": 1,
+            "is_closed": true,
+            "n_kids": 2,
+            "page_index": 5,
+            "view_mode": "XYZ",
+            "view_pos": [
+                70.86599731445312,
+                188.2779998779297,
+                0.0
+            ]
+        },
+        {
+            "title": "Next Token Prediction",
+            "level": 2,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 5,
+            "view_mode": "XYZ",
+            "view_pos": [
+                70.86599731445312,
+                164.96499633789062,
+                0.0
+            ]
+        },
+        {
+            "title": "Fill-in-the-Middle",
+            "level": 2,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 5,
+            "view_mode": "XYZ",
+            "view_pos": [
+                70.86599731445312,
+                96.21499633789062,
+                0.0
+            ]
+        },
+        {
+            "title": "Tokenizer",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 7,
+            "view_mode": "XYZ",
+            "view_pos": [
+                70.86599731445312,
+                592.1799926757812,
+                0.0
+            ]
+        },
+        {
+            "title": "Model Architecture",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 7,
+            "view_mode": "XYZ",
+            "view_pos": [
+                70.86599731445312,
+                497.38897705078125,
+                0.0
+            ]
+        },
+        {
+            "title": "Optimization",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 7,
+            "view_mode": "XYZ",
+            "view_pos": [
+                70.86599731445312,
+                348.6679992675781,
+                0.0
+            ]
+        },
+        {
+            "title": "Environments",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 7,
+            "view_mode": "XYZ",
+            "view_pos": [
+                70.86599731445312,
+                216.45199584960938,
+                0.0
+            ]
+        },
+        {
+            "title": "Long Context",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 8,
+            "view_mode": "XYZ",
+            "view_pos": [
+                70.86599731445312,
+                505.5480041503906,
+                0.0
+            ]
+        },
+        {
+            "title": "Instruction Tuning",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 8,
+            "view_mode": "XYZ",
+            "view_pos": [
+                70.86599731445312,
+                321.8249816894531,
+                0.0
+            ]
+        },
+        {
+            "title": "Experimental Results",
+            "level": 0,
+            "is_closed": true,
+            "n_kids": 4,
+            "page_index": 8,
+            "view_mode": "XYZ",
+            "view_pos": [
+                70.86599731445312,
+                83.4800033569336,
+                0.0
+            ]
+        },
+        {
+            "title": "Code Generation",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 10,
+            "view_mode": "XYZ",
+            "view_pos": [
+                70.86599731445312,
+                720.2999877929688,
+                0.0
+            ]
+        },
+        {
+            "title": "Fill-in-the-Middle Code Completion",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 12,
+            "view_mode": "XYZ",
+            "view_pos": [
+                70.86599731445312,
+                448.375,
+                0.0
+            ]
+        },
+        {
+            "title": "Cross-File Code Completion",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 13,
+            "view_mode": "XYZ",
+            "view_pos": [
+                70.86599731445312,
+                593.7740478515625,
+                0.0
+            ]
+        },
+        {
+            "title": "Program-based Math Reasoning",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 14,
+            "view_mode": "XYZ",
+            "view_pos": [
+                70.86599731445312,
+                756.8499755859375,
+                0.0
+            ]
+        },
+        {
+            "title": "Continue Pre-Training From General LLM",
+            "level": 0,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 14,
+            "view_mode": "XYZ",
+            "view_pos": [
+                70.86599731445312,
+                406.927978515625,
+                0.0
+            ]
+        },
+        {
+            "title": "Conclusion",
+            "level": 0,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 15,
+            "view_mode": "XYZ",
+            "view_pos": [
+                70.86599731445312,
+                388.83099365234375,
+                0.0
+            ]
+        },
+        {
+            "title": "Cases of Chatting with DeepSeek-Coder-Instruct",
+            "level": 0,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 20,
+            "view_mode": "XYZ",
+            "view_pos": [
+                70.86599731445312,
+                756.8499755859375,
+                0.0
+            ]
+        },
+        {
+            "title": "Benchmark curves during training of DeepSeek-Coder-Base",
+            "level": 0,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 21,
+            "view_mode": "XYZ",
+            "view_pos": [
+                70.86599731445312,
+                451.96697998046875,
+                0.0
+            ]
+        }
+    ],
+    "pages": 23,
+    "ocr_stats": {
+        "ocr_pages": 0,
+        "ocr_failed": 0,
+        "ocr_success": 0,
+        "ocr_engine": "none"
+    },
+    "block_stats": {
+        "header_footer": 0,
+        "code": 0,
+        "table": 10,
+        "equations": {
+            "successful_ocr": 0,
+            "unsuccessful_ocr": 0,
+            "equations": 0
+        }
+    },
+    "postprocess_stats": {
+        "edit": {}
+    }
+}
