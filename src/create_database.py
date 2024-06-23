@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # %%
 from langchain_community.document_loaders import PyPDFDirectoryLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
