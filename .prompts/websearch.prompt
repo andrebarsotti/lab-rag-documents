@@ -1,0 +1,7 @@
+I have a list of questions, comma-separated. For each question, generate a Google
+search string that is likely to yield the most relevant and useful results. The
+output should be a list of Google search strings, each corresponding to a question
+from the list, and also comma-separated. Here is the list of questions:
+{questions}. 
+Please generate the search strings in a simple, comma-separated format and do not include any additional text or explanations.
+The output should only be the search strings, comma-separated.
