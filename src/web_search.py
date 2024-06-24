@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# %%
 """
 Este script Python realiza pesquisas na web com base em um texto de consulta fornecido.
 Ele gera perguntas relacionadas, consultas de pesquisa, busca resultados de pesquisa,
@@ -16,10 +17,12 @@ import os
 import requests
 from dotenv import load_dotenv
 from helpers import load_prompt
-from langchain_community.document_loaders import ToMarkdownLoader
+from langchain_community.document_loaders import ToMarkdownLoader, FireCrawlLoader
 from langchain_community.utilities import SearxSearchWrapper
 from langchain_community.vectorstores import Chroma
+from langchain_community.vectorstores.utils import filter_complex_metadata
 from langchain_core.output_parsers import StrOutputParser
+from langchain_core.documents import Document
 from langchain_groq import ChatGroq
 from langchain_openai import OpenAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -31,7 +34,9 @@ logger = logging.getLogger(__name__)
 
 # Carrega variáveis de ambiente
 load_dotenv("./.env")
-api_key = os.environ.get("TWO_MARKDOWN")
+TWO_MARKDOWN_KEY = os.environ["TWO_MARKDOWN"]
+FIRECRAWL_API_KEY = os.environ["FIRECRAWL_API_KEY"]
+SEARXNG_HOST = os.environ.get("SEARXNG_HOST", "http://localhost:8080/")
 
 # Modelos de prompt
 PROMPT_TEMPLATE = load_prompt("rag-completo.prompt")
@@ -45,7 +50,7 @@ class WebSearchProcessor:
     def __init__(self):
         # Inicializa o modelo, o mecanismo de pesquisa e os templates de prompt
         self.model = ChatGroq(model="llama3-70b-8192", temperature=0)
-        self.searchX = SearxSearchWrapper(searx_host="https://salvadeonetlink.asuscomm.com:8380/")
+        self.searchX = SearxSearchWrapper(searx_host=SEARXNG_HOST)
         self.prompt_template = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
         self.perspectives_template = ChatPromptTemplate.from_template(PERSPECTIVES_TEMPLATE)
         self.websearch_template = ChatPromptTemplate.from_template(WEBSEARCH_TEMPLATE)
@@ -80,8 +85,10 @@ class WebSearchProcessor:
         Busca resultados de pesquisa na web com base nas consultas geradas.
         """
         results = []
-        for q in queries:
-            results += self.searchX.results(q, num_results=3)
+        for query in queries:
+            logger.info(f"Searching for: {query}.")
+            results += self.searchX.results(query, num_results=3)
+        logger.info(f"Search results: {len(results)} results.")
         return self.remove_duplicates(results)
 
     def remove_duplicates(self, list_of_dicts):
@@ -95,6 +102,7 @@ class WebSearchProcessor:
             if d_tuple not in seen:
                 seen.add(d_tuple)
                 unique_list.append(d)
+        logger.info(f"Unique search results: {len(unique_list)} results.")
         return unique_list
 
     def load_documents(self, results):
@@ -108,13 +116,16 @@ class WebSearchProcessor:
         for result in results:
             url = result["link"]
             try:
+                logger.info(f"Fetching data from {url}.")
                 response = requests.head(url, allow_redirects=True)
                 response.raise_for_status()
-                loader = ToMarkdownLoader(url, api_key)
+                # loader = ToMarkdownLoader(url, TWO_MARKDOWN_KEY)
+                loader = FireCrawlLoader(url, api_key=FIRECRAWL_API_KEY,mode="scrape")
                 doc = loader.load()[0]
                 documents.append(doc)
             except requests.exceptions.RequestException as e:
-                logger.error(f"Error verifying or fetching data from {url}: {e}")
+                logger.error(f"Error verifying or fetching data from {url}: {e}")        
+        logger.info(f"Loaded {len(documents)} documents.")
         return documents
 
     def split_documents(self, documents):
@@ -132,6 +143,23 @@ class WebSearchProcessor:
         chunks = text_splitter.split_documents(documents)
         logger.info(f"Split {len(documents)} documents into {len(chunks)} chunks.")
         return chunks
+    
+    def get_similar_docs(self, chunks, query_text, num_results=3):
+        """
+        Esta função cria um vectorstore a partir dos pedaços de documentos usando embeddings OpenAIEmbeddings.
+        Em seguida, configura um retriever para o vectorstore que realiza uma busca de similaridade.
+        A função invoca o retriever com a consulta de texto e retorna os documentos similares encontrados.
+        """
+        # Filter complex metadata from each chunk
+        logger.info("Getting similar documents.")
+        chunks = filter_complex_metadata(chunks)
+        
+        logger.info("Getting similar documents.")
+        vectorstore = Chroma.from_documents(documents=chunks, embedding=OpenAIEmbeddings())
+        retriever = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": num_results})
+        docs = retriever.invoke(query_text)
+        logger.info(f"Found {len(docs)} similar documents.")
+        return docs
 
     def generate_response(self, results, query_text):
         """
@@ -142,10 +170,40 @@ class WebSearchProcessor:
         context_text = "\n\n---\n\n".join([doc.page_content for doc in results])
         prompt = self.prompt_template.format(context=context_text, question=query_text)
         response_text = self.model.invoke(prompt)
-        sources = list(set([doc.metadata.get("source", None) for doc in results]))
+        sources = list(set([doc.metadata.get("link", None) for doc in results]))
         formatted_response = f"Response: {response_text.content}\nSources: {sources}"
         return formatted_response
+    
+    def query(self, query_text):
+        """
+        Função que processa a consulta e gera uma resposta.
+        """
+        processor = self
+        # Generate related questions and search results
+        questions = processor.generate_questions(query_text)
+        questions.append(query_text)
+        queries = processor.generate_queries(questions)
+        search_results = processor.fetch_search_results(queries)
+        
+        #filter the search results
+        search_filter = processor.get_similar_docs(
+            chunks=[Document(result['snippet'], metadata={"link": result["link"]}) for result in search_results],
+            query_text=query_text,
+            num_results=5
+        )
+        
+        documents = processor.load_documents(
+            self.remove_duplicates([{"link": doc.metadata.get("link")} for doc in search_filter])
+        )
+        
+        chunks = processor.split_documents(documents)
 
+        docs = processor.get_similar_docs(chunks, query_text)
+
+        formatted_response = processor.generate_response(docs, query_text)
+        return formatted_response
+    
+# %%
 def main():
     """
     Função principal que processa a consulta.
@@ -160,18 +218,8 @@ def main():
     processor = WebSearchProcessor()
 
     try:
-        questions = processor.generate_questions(query_text)
-        queries = processor.generate_queries(questions)
-        search_results = processor.fetch_search_results(queries)
-        documents = processor.load_documents(search_results)
-        chunks = processor.split_documents(documents)
-
-        vectorstore = Chroma.from_documents(documents=chunks, embedding=OpenAIEmbeddings())
-        retriever = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 3})
-        docs = retriever.invoke(query_text)
-
-        formatted_response = processor.generate_response(docs, query_text)
-        logger.info(formatted_response)
+        formatted_response = processor.query(query_text)
+        print(formatted_response)
     except Exception as e:
         logger.error(f"Error processing the query: {e}")
 

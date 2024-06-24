@@ -16,7 +16,7 @@ load_dotenv(dotenv_path="./.env", verbose=True)
 
 CHROMA_PATH = os.environ.get("CHROMA_PATH", "chroma")
 DATA_PATH = os.environ.get("DATA_PATH", "../data")
-openai.api_key = os.environ['OPENAI_API_KEY']
+openai.api_key = os.environ["OPENAI_API_KEY"]
 
 # %%
 def load_documents(): 

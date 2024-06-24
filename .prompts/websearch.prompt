@@ -1,7 +1,14 @@
-I have a list of questions, comma-separated. For each question, generate a Google
-search string that is likely to yield the most relevant and useful results. The
-output should be a list of Google search strings, each corresponding to a question
-from the list, and also comma-separated. Here is the list of questions:
-{questions}. 
-Please generate the search strings in a simple, comma-separated format and do not include any additional text or explanations.
-The output should only be the search strings, comma-separated.
+I have a list of questions, comma-separated. For each question, generate a Google search string that is likely to yield the most relevant and useful results.
+
+Step 1: Here is the list of questions: {questions}.
+
+Step 2: For each question, generate a Google search string that is likely to yield the most relevant and useful results. The search strings should be in a simple, comma-separated format.
+
+Step 3: The output should only be the search strings, comma-separated, without any additional text or explanations."
+
+Example input: What is a Large Scale Language Model?
+Example output: define large scale language model
+
+Final input: Here is the list of questions: {questions}.
+
+Output: The search strings should be a single line of Google search strings, each corresponding to a question from the list, and comma-separated without any additional text or explanations.
