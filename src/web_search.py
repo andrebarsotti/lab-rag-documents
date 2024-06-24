@@ -14,8 +14,9 @@ prompt_template = ChatPromptTemplate.from_template(load_prompt("rag-completo.pro
 perspectives_template = ChatPromptTemplate.from_template(load_prompt("perspectives.prompt"))
 websearch_template = ChatPromptTemplate.from_template(load_prompt("websearch.prompt"))
 
-model = ChatGroq(model="llama3-70b-8192", temperature=0.5)
-query = "what is a large language model?"
+model = ChatGroq(model="llama3-70b-8192", temperature=0)
+# query = "what is a large language model?"
+query = "o que é um llm?"
 
 def generate_questions(question):
     queries = (
@@ -42,8 +43,8 @@ results: List[Dict] = []
 
 searchX = SearxSearchWrapper(searx_host="https://salvadeonetlink.asuscomm.com:8380/")
 
-for query in queries:
-    results += searchX.results(query, num_results=3)
+for q in queries:
+    results += searchX.results(q, num_results=3)
 
 # Remove duplicates from results
 def remove_duplicates(list_of_dicts):
@@ -118,4 +119,27 @@ from langchain_openai import OpenAIEmbeddings
 vectorstore = Chroma.from_documents(documents=chunks,
                                     embedding=OpenAIEmbeddings())
 
-retriever = vectorstore.as_retriever()
+retriever = vectorstore.as_retriever(
+    search_type="similarity",
+    search_kwargs={"k": 3}
+)
+
+docs = retriever.invoke(query)
+
+# %%
+def generate_response(results, query_text):
+    try:
+        context_text = "\n\n---\n\n".join([doc.page_content for doc in results])
+        prompt = prompt_template.format(context=context_text, question=query_text)
+        response_text = model.invoke(prompt)
+        sources = [doc.metadata.get("source", None) for doc in results]
+        formatted_response = f"Response: {response_text.content}\nSources: {sources}"
+        return formatted_response
+    except Exception as e:
+        print(f"Error generating response: {e}")
+        return "Unable to generate a response at this time."
+    
+formated_response = generate_response(docs, query)
+
+print(formated_response)
+
