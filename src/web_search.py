@@ -1,4 +1,15 @@
 #!/usr/bin/env python3
+"""
+Este script Python realiza pesquisas na web com base em um texto de consulta fornecido.
+Ele gera perguntas relacionadas, consultas de pesquisa, busca resultados de pesquisa,
+carrega documentos, divide documentos em pedaços, gera uma resposta e imprime a resposta formatada.
+
+Para usar o script, execute-o com o texto de consulta como argumento:
+    python web_search.py "Seu texto de consulta aqui"
+
+O script gerará perguntas relacionadas, consultas de pesquisa, buscará resultados de pesquisa,
+carregará documentos, dividirá documentos, gerará uma resposta e imprimirá a resposta formatada.
+"""
 import argparse
 import logging
 import os
