@@ -74,7 +74,7 @@ class QueryProcessor:
             context_text = "\n\n---\n\n".join([doc.page_content for doc in results])
             prompt = self.prompt_template.format(context=context_text, question=query_text)
             response_text = self.model.invoke(prompt)
-            sources = [doc.metadata.get("source", None) for doc in results]
+            sources = list(set([doc.metadata.get("source", None) for doc in results]))
             formatted_response = f"Response: {response_text.content}\nSources: {sources}"
             return formatted_response
         except Exception as e:

@@ -60,7 +60,7 @@ class QueryProcessor:
         # print(prompt)
 
         response_text = self.model.invoke(prompt)
-        sources = [doc.metadata.get("source", None) for doc in results]
+        sources = list(set([doc.metadata.get("source", None) for doc in results]))
         formatted_response = f"Response: {response_text.content}\nSources: {sources}"
 
         return formatted_response
