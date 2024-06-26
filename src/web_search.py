@@ -41,7 +41,7 @@ SEARXNG_HOST = os.environ.get("SEARXNG_HOST", "http://localhost:8080/")
 # Modelos de prompt
 PROMPT_TEMPLATE = load_prompt("rag-completo.prompt")
 PERSPECTIVES_TEMPLATE = load_prompt("perspectives.prompt")
-WEBSEARCH_TEMPLATE = load_prompt("websearch.prompt")
+WEBSEARCH_TEMPLATE = load_prompt("websearch2.prompt")
 
 class WebSearchProcessor:
     """
