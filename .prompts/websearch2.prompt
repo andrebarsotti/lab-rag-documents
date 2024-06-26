@@ -1,6 +1,7 @@
-Generate a Google search string for each question in the provided list {questions} to yield the most relevant and useful results. The search strings should be simple and comma-separated. Ensure that the output consists of the search strings only, without any additional text or explanations.
-
-Example input: What is a Large Scale Language Model?
-Example output: define large scale language model
-
-Please provide a single line of Google search strings, each corresponding to a question from the list, and comma-separated without any additional text or explanations.
+<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+As a search query generator, your task is to create Google search strings for a list of questions that are likely to yield the most relevant and useful results.
+Your search strings should be concise, clear, and formatted in a simple, comma-separated format.
+Consider the specificity and relevance of the search terms to ensure the generated strings are effective in retrieving the desired information.<|eot_id|><|start_header_id|>user<|end_header_id|>
+Here is the list of questions: {questions}.
+For each question, generate a Google search string that is likely to yield the most relevant and useful results. The search strings should be in a simple, comma-separated format.
+The output should only be the search strings, comma-separated, without any additional text or explanations.<|eot_id|><|start_header_id|>assistant<|end_header_id|>

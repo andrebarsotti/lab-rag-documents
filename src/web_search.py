@@ -25,7 +25,7 @@ from langchain_community.vectorstores.utils import filter_complex_metadata
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.documents import Document
 from langchain_groq import ChatGroq
-from langchain_openai import OpenAIEmbeddings
+from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain.prompts import ChatPromptTemplate
 
@@ -44,7 +44,7 @@ USER_AGENT = os.environ["USER_AGENT"]
 # Modelos de prompt
 PROMPT_TEMPLATE = load_prompt("rag-completo.prompt")
 PERSPECTIVES_TEMPLATE = load_prompt("perspectives.prompt")
-WEBSEARCH_TEMPLATE = load_prompt("websearch2.prompt")
+WEBSEARCH_TEMPLATE = load_prompt("websearch.prompt")
 
 class WebSearchProcessor:
     """
@@ -52,7 +52,8 @@ class WebSearchProcessor:
     """
     def __init__(self):
         # Inicializa o modelo, o mecanismo de pesquisa e os templates de prompt
-        self.model = ChatGroq(model="llama3-70b-8192", temperature=0)
+        # self.model = ChatGroq(model="llama3-70b-8192", temperature=0)
+        self.model = ChatOpenAI(model="gpt-4o", temperature=0)
         self.searchX = SearxSearchWrapper(searx_host=SEARXNG_HOST)
         self.prompt_template = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
         self.perspectives_template = ChatPromptTemplate.from_template(PERSPECTIVES_TEMPLATE)
