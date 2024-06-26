@@ -17,7 +17,8 @@ import os
 import requests
 from dotenv import load_dotenv
 from helpers import load_prompt
-from langchain_community.document_loaders import ToMarkdownLoader, FireCrawlLoader
+from tqdm import tqdm
+from langchain_community.document_loaders import ToMarkdownLoader, FireCrawlLoader, WebBaseLoader
 from langchain_community.utilities import SearxSearchWrapper
 from langchain_community.vectorstores import Chroma
 from langchain_community.vectorstores.utils import filter_complex_metadata
@@ -36,7 +37,9 @@ logger = logging.getLogger(__name__)
 load_dotenv("./.env")
 TWO_MARKDOWN_KEY = os.environ["TWO_MARKDOWN"]
 FIRECRAWL_API_KEY = os.environ["FIRECRAWL_API_KEY"]
+JINA_API_KEY = os.environ["JINA_API_KEY"]
 SEARXNG_HOST = os.environ.get("SEARXNG_HOST", "http://localhost:8080/")
+USER_AGENT = os.environ["USER_AGENT"]
 
 # Modelos de prompt
 PROMPT_TEMPLATE = load_prompt("rag-completo.prompt")
@@ -85,7 +88,7 @@ class WebSearchProcessor:
         Busca resultados de pesquisa na web com base nas consultas geradas.
         """
         results = []
-        for query in queries:
+        for query in tqdm(queries, desc="Searching"):
             logger.info(f"Searching for: {query}.")
             results += self.searchX.results(query, num_results=3)
         logger.info(f"Search results: {len(results)} results.")
@@ -113,15 +116,20 @@ class WebSearchProcessor:
         Se ocorrer um erro ao acessar a URL, uma mensagem de erro é registrada no log.
         """
         documents = []
-        for result in results:
+        for result in tqdm(results, desc="Loading documents"):
             url = result["link"]
             try:
                 logger.info(f"Fetching data from {url}.")
                 response = requests.head(url, allow_redirects=True)
                 response.raise_for_status()
                 # loader = ToMarkdownLoader(url, TWO_MARKDOWN_KEY)
-                loader = FireCrawlLoader(url, api_key=FIRECRAWL_API_KEY,mode="scrape")
+                # loader = FireCrawlLoader(url, api_key=FIRECRAWL_API_KEY,mode="scrape")
+                loader = WebBaseLoader(f"https://r.jina.ai/{url}", header_template={
+                        "Authentication":f"Bearer {JINA_API_KEY}",
+                        "User-Agent":USER_AGENT
+                    })
                 doc = loader.load()[0]
+                doc.metadata["link"] = url
                 documents.append(doc)
             except requests.exceptions.RequestException as e:
                 logger.error(f"Error verifying or fetching data from {url}: {e}")        
