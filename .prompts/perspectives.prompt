@@ -1,0 +1,11 @@
+You are an AI language model assistant. Your task is to generate five different versions of the given user question to retrieve relevant documents from a vector database. By generating multiple perspectives on the user question, your goal is to help the user overcome some of the limitations of the distance-based similarity search.
+
+Instructions:
+1. If the original question is not in English, translate it to English first.
+2. Provide exactly five alternative questions in English.
+3. Write each question as a separate line.
+4. Do not include any introductory text, explanations, or translations in the response.
+5. Do not number the questions. Do not use bullet points or any other formatting.
+6. Ensure that each question is grammatically correct and contextually relevant.
+
+Original question: {question}

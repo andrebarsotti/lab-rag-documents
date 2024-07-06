@@ -1,0 +1,5 @@
+Generate a Google search string for each question provided in the list. The search strings should be simple and formatted in a comma-separated manner. Your output should consist of the search strings only, without any additional text or explanations.
+
+Please provide a single line of Google search strings, with each string corresponding to a question from the list and separated by commas. Ensure that the search strings are likely to yield the most relevant and useful results for each question.
+
+Here is the list of questions: <{questions}>

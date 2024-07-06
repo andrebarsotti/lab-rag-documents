@@ -1,0 +1,210 @@
+{
+    "languages": [
+        "en"
+    ],
+    "filetype": "pdf",
+    "toc": [
+        {
+            "title": "Introduction",
+            "level": 0,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 1,
+            "view_mode": "XYZ",
+            "view_pos": [
+                52.157997131347656,
+                493.97698974609375,
+                0.0
+            ]
+        },
+        {
+            "title": "Related Work",
+            "level": 0,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 1,
+            "view_mode": "XYZ",
+            "view_pos": [
+                304.8659973144531,
+                162.65200805664062,
+                0.0
+            ]
+        },
+        {
+            "title": "Methodology",
+            "level": 0,
+            "is_closed": true,
+            "n_kids": 4,
+            "page_index": 2,
+            "view_mode": "XYZ",
+            "view_pos": [
+                52.157997131347656,
+                193.42100524902344,
+                0.0
+            ]
+        },
+        {
+            "title": "URLs identification",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 2,
+            "view_mode": "XYZ",
+            "view_pos": [
+                304.8659973144531,
+                772.7250366210938,
+                0.0
+            ]
+        },
+        {
+            "title": "Post-crawl cleaning",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 2,
+            "view_mode": "XYZ",
+            "view_pos": [
+                304.8659973144531,
+                577.0989990234375,
+                0.0
+            ]
+        },
+        {
+            "title": "Removal of duplicated content",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 2,
+            "view_mode": "XYZ",
+            "view_pos": [
+                304.8659973144531,
+                453.3689880371094,
+                0.0
+            ]
+        },
+        {
+            "title": "Annotation",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 2,
+            "view_mode": "XYZ",
+            "view_pos": [
+                304.8659973144531,
+                211.23500061035156,
+                0.0
+            ]
+        },
+        {
+            "title": "Results",
+            "level": 0,
+            "is_closed": true,
+            "n_kids": 3,
+            "page_index": 2,
+            "view_mode": "XYZ",
+            "view_pos": [
+                304.8659973144531,
+                135.3260040283203,
+                0.0
+            ]
+        },
+        {
+            "title": "Corpus size",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 3,
+            "view_mode": "XYZ",
+            "view_pos": [
+                52.157997131347656,
+                423.5469970703125,
+                0.0
+            ]
+        },
+        {
+            "title": "Domain diversity",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 3,
+            "view_mode": "XYZ",
+            "view_pos": [
+                304.8659973144531,
+                473.61102294921875,
+                0.0
+            ]
+        },
+        {
+            "title": "Content originality",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 3,
+            "view_mode": "XYZ",
+            "view_pos": [
+                304.8659973144531,
+                283.8609924316406,
+                0.0
+            ]
+        },
+        {
+            "title": "Conclusion",
+            "level": 0,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 4,
+            "view_mode": "XYZ",
+            "view_pos": [
+                52.157997131347656,
+                303.3639831542969,
+                0.0
+            ]
+        },
+        {
+            "title": "References",
+            "level": 0,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 5,
+            "view_mode": "XYZ",
+            "view_pos": [
+                52.157997131347656,
+                467.88397216796875,
+                0.0
+            ]
+        },
+        {
+            "title": "Language Resource References",
+            "level": 0,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 5,
+            "view_mode": "XYZ",
+            "view_pos": [
+                304.8659973144531,
+                240.95700073242188,
+                0.0
+            ]
+        }
+    ],
+    "pages": 7,
+    "ocr_stats": {
+        "ocr_pages": 0,
+        "ocr_failed": 0,
+        "ocr_success": 0,
+        "ocr_engine": "none"
+    },
+    "block_stats": {
+        "header_footer": 0,
+        "code": 0,
+        "table": 3,
+        "equations": {
+            "successful_ocr": 0,
+            "unsuccessful_ocr": 0,
+            "equations": 0
+        }
+    },
+    "postprocess_stats": {
+        "edit": {}
+    }
+}

@@ -1,0 +1,405 @@
+{
+    "languages": [
+        "en"
+    ],
+    "filetype": "pdf",
+    "toc": [
+        {
+            "title": "1 Introduction",
+            "level": 0,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 0,
+            "view_mode": "XYZ",
+            "view_pos": [
+                108.0,
+                203.16600036621094,
+                0.0
+            ]
+        },
+        {
+            "title": "2 Methods",
+            "level": 0,
+            "is_closed": false,
+            "n_kids": 5,
+            "page_index": 1,
+            "view_mode": "XYZ",
+            "view_pos": [
+                108.0,
+                183.4429931640625,
+                0.0
+            ]
+        },
+        {
+            "title": "2.1 Models",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 2,
+            "view_mode": "XYZ",
+            "view_pos": [
+                108.0,
+                617.7230224609375,
+                0.0
+            ]
+        },
+        {
+            "title": "2.2 Retriever: DPR",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 2,
+            "view_mode": "XYZ",
+            "view_pos": [
+                108.0,
+                358.802978515625,
+                0.0
+            ]
+        },
+        {
+            "title": "2.3 Generator: BART",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 2,
+            "view_mode": "XYZ",
+            "view_pos": [
+                108.0,
+                215.76499938964844,
+                0.0
+            ]
+        },
+        {
+            "title": "2.4 Training",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 2,
+            "view_mode": "XYZ",
+            "view_pos": [
+                108.0,
+                117.11599731445312,
+                0.0
+            ]
+        },
+        {
+            "title": "2.5 Decoding",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 3,
+            "view_mode": "XYZ",
+            "view_pos": [
+                108.0,
+                654.31298828125,
+                0.0
+            ]
+        },
+        {
+            "title": "3 Experiments",
+            "level": 0,
+            "is_closed": false,
+            "n_kids": 4,
+            "page_index": 3,
+            "view_mode": "XYZ",
+            "view_pos": [
+                108.0,
+                430.2860107421875,
+                0.0
+            ]
+        },
+        {
+            "title": "3.1 Open-domain Question Answering",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 3,
+            "view_mode": "XYZ",
+            "view_pos": [
+                108.0,
+                303.3489990234375,
+                0.0
+            ]
+        },
+        {
+            "title": "3.2 Abstractive Question Answering",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 3,
+            "view_mode": "XYZ",
+            "view_pos": [
+                108.0,
+                149.84300231933594,
+                0.0
+            ]
+        },
+        {
+            "title": "3.3 Jeopardy Question Generation",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 4,
+            "view_mode": "XYZ",
+            "view_pos": [
+                108.0,
+                656.7650146484375,
+                0.0
+            ]
+        },
+        {
+            "title": "3.4 Fact Verification",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 4,
+            "view_mode": "XYZ",
+            "view_pos": [
+                108.0,
+                421.98797607421875,
+                0.0
+            ]
+        },
+        {
+            "title": "4 Results",
+            "level": 0,
+            "is_closed": false,
+            "n_kids": 5,
+            "page_index": 4,
+            "view_mode": "XYZ",
+            "view_pos": [
+                108.0,
+                257.2480163574219,
+                0.0
+            ]
+        },
+        {
+            "title": "4.1 Open-domain Question Answering",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 4,
+            "view_mode": "XYZ",
+            "view_pos": [
+                108.0,
+                233.6999969482422,
+                0.0
+            ]
+        },
+        {
+            "title": "4.2 Abstractive Question Answering",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 5,
+            "view_mode": "XYZ",
+            "view_pos": [
+                108.0,
+                516.9559936523438,
+                0.0
+            ]
+        },
+        {
+            "title": "4.3 Jeopardy Question Generation",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 5,
+            "view_mode": "XYZ",
+            "view_pos": [
+                108.0,
+                395.9529724121094,
+                0.0
+            ]
+        },
+        {
+            "title": "4.4 Fact Verification",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 5,
+            "view_mode": "XYZ",
+            "view_pos": [
+                108.0,
+                128.02500915527344,
+                0.0
+            ]
+        },
+        {
+            "title": "4.5 Additional Results",
+            "level": 1,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 6,
+            "view_mode": "XYZ",
+            "view_pos": [
+                108.0,
+                334.23699951171875,
+                0.0
+            ]
+        },
+        {
+            "title": "5 Related Work",
+            "level": 0,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 7,
+            "view_mode": "XYZ",
+            "view_pos": [
+                108.0,
+                168.39100646972656,
+                0.0
+            ]
+        },
+        {
+            "title": "6 Discussion",
+            "level": 0,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 8,
+            "view_mode": "XYZ",
+            "view_pos": [
+                108.0,
+                302.302001953125,
+                0.0
+            ]
+        },
+        {
+            "title": "A Implementation Details",
+            "level": 0,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 16,
+            "view_mode": "XYZ",
+            "view_pos": [
+                108.0,
+                674.6820068359375,
+                0.0
+            ]
+        },
+        {
+            "title": "B Human Evaluation",
+            "level": 0,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 16,
+            "view_mode": "XYZ",
+            "view_pos": [
+                108.0,
+                558.1709594726562,
+                0.0
+            ]
+        },
+        {
+            "title": "C Training setup Details",
+            "level": 0,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 16,
+            "view_mode": "XYZ",
+            "view_pos": [
+                108.0,
+                254.16600036621094,
+                0.0
+            ]
+        },
+        {
+            "title": "D Further Details on Open-Domain QA",
+            "level": 0,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 17,
+            "view_mode": "XYZ",
+            "view_pos": [
+                108.0,
+                720.0,
+                0.0
+            ]
+        },
+        {
+            "title": "E Further Details on FEVER",
+            "level": 0,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 17,
+            "view_mode": "XYZ",
+            "view_pos": [
+                108.0,
+                400.6470031738281,
+                0.0
+            ]
+        },
+        {
+            "title": "F Null Document Probabilities",
+            "level": 0,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 17,
+            "view_mode": "XYZ",
+            "view_pos": [
+                108.0,
+                283.76800537109375,
+                0.0
+            ]
+        },
+        {
+            "title": "G Parameters",
+            "level": 0,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 17,
+            "view_mode": "XYZ",
+            "view_pos": [
+                108.0,
+                134.1610107421875,
+                0.0
+            ]
+        },
+        {
+            "title": "H Retrieval Collapse",
+            "level": 0,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 18,
+            "view_mode": "XYZ",
+            "view_pos": [
+                108.0,
+                478.59100341796875,
+                0.0
+            ]
+        },
+        {
+            "title": "I Number of instances per dataset",
+            "level": 0,
+            "is_closed": null,
+            "n_kids": 0,
+            "page_index": 18,
+            "view_mode": "XYZ",
+            "view_pos": [
+                108.0,
+                361.6289978027344,
+                0.0
+            ]
+        }
+    ],
+    "pages": 19,
+    "ocr_stats": {
+        "ocr_pages": 0,
+        "ocr_failed": 0,
+        "ocr_success": 0,
+        "ocr_engine": "none"
+    },
+    "block_stats": {
+        "header_footer": 0,
+        "code": 0,
+        "table": 5,
+        "equations": {
+            "successful_ocr": 2,
+            "unsuccessful_ocr": 0,
+            "equations": 2
+        }
+    },
+    "postprocess_stats": {
+        "edit": {}
+    }
+}
