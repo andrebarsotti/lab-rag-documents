@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # %%
-from langchain_community.document_loaders import PyPDFDirectoryLoader
+from langchain_community.document_loaders import PyPDFDirectoryLoader, DirectoryLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.schema import Document
 from langchain_openai import OpenAIEmbeddings
@@ -22,7 +22,9 @@ openai.api_key = os.environ["OPENAI_API_KEY"]
 def load_documents(): 
     print("Loading documents...")
     # return PyPDFDirectoryLoader(DATA_PATH, recursive=True, extract_images=True).load()
-    return PyPDFDirectoryLoader(DATA_PATH, recursive=True).load()
+    # return PyPDFDirectoryLoader(DATA_PATH, recursive=True).load()
+    loader = DirectoryLoader(DATA_PATH, glob="**/*.md")
+    return loader.load()
 
 # %%
 def split_documents(documents: list[Document]):

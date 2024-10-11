@@ -18,7 +18,7 @@ class QueryProcessor:
         self.embedding_function = OpenAIEmbeddings()
         self.db = Chroma(persist_directory=CHROMA_PATH, embedding_function=self.embedding_function)
         self.prompt_template = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
-        self.model = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
+        self.model = ChatOpenAI(model="gpt-4o-mini", temperature=0)
         
     def search_db(self, query_text):
         results = self.db.similarity_search_with_relevance_scores(query_text, k=7)

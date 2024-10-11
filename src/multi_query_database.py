@@ -26,7 +26,7 @@ class QueryProcessor:
         self.retriever = self.db.as_retriever()
         self.prompt_template = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
         self.perspectives_template = ChatPromptTemplate.from_template(PERSPECTIVES_TEMPLATE)
-        self.model = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
+        self.model = ChatOpenAI(model="gpt-4o-mini", temperature=0)
         
 
     def generate_queries(self, question):
